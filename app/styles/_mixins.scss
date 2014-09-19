@@ -1,0 +1,5 @@
+@mixin svg-bg($name) {
+  background: transparent url(../images/#{$name}.png) 0 0 no-repeat; // IE8 & below
+  background: transparent url(../images/#{$name}.svg) 0 0 no-repeat;
+  background-size: 100%;
+}
