@@ -6,10 +6,23 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 @import '_typography.scss';
 
 .logo {
-    display: inline-block;
+    display: block;
     width: 64px;
     height: 64px;
+    float: left;
+    margin: 0 20px 0 20px;
     @include svg-bg('cloud-10');
+}
+
+header {
+    border-bottom: 1px solid #999;
+}
+
+header h1 {
+    position: relative;
+    margin: 0;
+    height: 64px;
+    line-height: 64px;
 }
 
 /* Responsive: Portrait tablets and up */
