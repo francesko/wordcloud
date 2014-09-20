@@ -21,7 +21,6 @@ require [
   'collections/WordCollection'
   'views/WordCloudView'
 ], (Backbone, topics, Router, WordCollection, WordCloudView) ->
-  
   topics = JSON.parse topics
 
   words = new WordCollection

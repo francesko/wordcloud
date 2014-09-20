@@ -31,10 +31,6 @@ define [
             @$el.append wordTemplate(data)
 
         render: ->
-            console.log @collection.map (model)->
-                label: model.get('label')
-                sentimentScore: model.get('sentimentScore')
-
             @collection.forEach @renderWord, @
         
         showWordInfo: (e)->
