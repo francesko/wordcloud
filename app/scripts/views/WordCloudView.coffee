@@ -1,10 +1,10 @@
 define [
     'underscore'
     'backbone'
+    'templates'
     'ventr'
-    'text!templates/word.jst'
-], (_, Backbone, ventr, wordTemplate)->
-    wordTemplate = _.template wordTemplate
+], (_, Backbone, JST, ventr)->
+    wordTemplate = JST['app/scripts/templates/word.ejs']
 
     class WorldCloudView extends Backbone.View
 
