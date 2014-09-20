@@ -10,19 +10,28 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     width: 64px;
     height: 64px;
     float: left;
-    margin: 0 20px 0 20px;
+    margin: 0 20px;
     @include svg-bg('cloud-10');
 }
 
 header {
     border-bottom: 1px solid #999;
+    margin-bottom: 20px;
+
+    h1 {
+        position: relative;
+        margin: 0;
+        height: 64px;
+        line-height: 64px;
+    }
 }
 
-header h1 {
-    position: relative;
-    margin: 0;
-    height: 64px;
-    line-height: 64px;
+.word {
+    font-size: 200%;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 /* Responsive: Portrait tablets and up */
