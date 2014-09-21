@@ -26,8 +26,8 @@ define [
             expect(@routeSpy.calledOnce).to.be.true
             expect(@routeSpy.calledWith()).to.be.true
 
-        it 'fires the showInfoRoute with a non blank hash', ->
-            @router.bind 'route:showWordInfo', @routeSpy
+        it 'fires the showTopicInfo route with a non blank hash', ->
+            @router.bind 'route:showTopicInfo', @routeSpy
             @router.navigate '#1234_test', { trigger: yes }
             expect(@routeSpy.calledOnce).to.be.true
             expect(@routeSpy.calledWith('1234_test')).to.be.true

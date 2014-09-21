@@ -5,9 +5,9 @@ define [
 ], (_, popularityRanges)->
 
     utils =
-        calculateWordColor: (model)->
+        calculateTopicColor: (topic)->
             fontColor = 'grey'
-            sentimentScore = model.get('sentimentScore')
+            sentimentScore = topic.get('sentimentScore')
             
             if sentimentScore > 60
                 fontColor = 'green'
@@ -16,8 +16,8 @@ define [
             
             fontColor
 
-        calculateWordSize: (model)->
-            popularity = Math.floor (model.get('volume') / model.collection.popularity.max) * 100
+        calculateTopicSize: (topic)->
+            popularity = Math.floor (topic.get('volume') / topic.collection.popularity.max) * 100
             
             fontSize = 6
             range = _.find popularityRanges, (range, index)->

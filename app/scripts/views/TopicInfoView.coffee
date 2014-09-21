@@ -4,15 +4,15 @@ define [
     'backbone'
     'templates'
     'ventr'
-    'utils/font'
+    'utils/helpers'
     'bootstrap'
-], (_, Backbone, JST, ventr, fontUtils)->
+], (_, Backbone, JST, ventr, helpers)->
 
-    class WordInfoView extends Backbone.View
+    class TopicInfoView extends Backbone.View
 
-        className: 'word-info modal fade'
+        className: 'topic-info modal fade'
 
-        template: JST['app/scripts/templates/word-info.ejs']
+        template: JST['app/scripts/templates/topic-info.ejs']
 
         bgColors:
             positive: 'green'
@@ -20,21 +20,20 @@ define [
             negative: 'red'
 
         events:
-            'click .js-wordinfo-close': 'close'
+            'click .js-topic-info-close': 'close'
 
         initialize: ->
             @render()
-            @listenTo ventr, 'WordInfoView:show', @show
-            @listenTo ventr, 'WordInfoView:close', @close
-            @$el.on 'click', _.bind(@close, @)
+            @listenTo ventr, 'TopicInfoView:show', @show
+            @listenTo ventr, 'TopicInfoView:close', @close
 
-        show: (wordId)->
-            word = @collection.get wordId
+        show: (topicId)->
+            topic = @collection.get topicId
 
-            if word?
-                data = word.toJSON()
-                data.fontColor = fontUtils.calculateWordColor word
-                data.fontSize = fontUtils.calculateWordSize word
+            if topic?
+                data = topic.toJSON()
+                data.fontColor = helpers.calculateTopicColor topic
+                data.fontSize = helpers.calculateTopicSize topic
                 data.bgColors = @bgColors
                 data.sentiment =
                     positive: data.sentiment.positive or 0
@@ -47,7 +46,7 @@ define [
         close: (e)->
             e.preventDefault() if e?
             @$el.modal 'hide'
-            Backbone.history.navigate ''
+            Backbone.history.navigate ' '
 
         render: ->
             $('body').append @el

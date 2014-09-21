@@ -7,12 +7,12 @@
     @include svg-bg('cloud-10');
 }
 
-.word-cloud{
+.topics {
     text-align: center;
     padding: 15px;
 }
 
-.word {
+.topic {
     display: inline-block;
     margin: 5px;
     letter-spacing: -2px;

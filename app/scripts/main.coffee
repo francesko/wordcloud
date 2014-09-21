@@ -18,22 +18,21 @@ require [
   'backbone'
   'text!data/topics.json'
   'Router'
-  'collections/WordCollection'
-  'views/WordCloudView',
-  'views/WordInfoView'
-], (Backbone, topics, Router, WordCollection, WordCloudView, WordInfoView) ->
-  topics = JSON.parse topics
+  'collections/Topics'
+  'views/TopicsView',
+  'views/TopicInfoView'
+], (Backbone, topicsJSON, Router, Topics, TopicsView, TopicInfoView) ->
 
-  words = new WordCollection { randomSort: on }
+  topics = new Topics { randomSort: on }
   
-  new WordCloudView
-    el: '.js-word-cloud'
-    collection: words
+  new TopicsView
+    el: '.js-topics'
+    collection: topics
 
-  new WordInfoView
-    collection: words
+  new TopicInfoView
+    collection: topics
 
-  words.reset topics, { parse: on }
+  topics.reset JSON.parse(topicsJSON), { parse: on }
 
   new Router()
   

@@ -1,16 +1,16 @@
 define [
     'backbone'
     'ventr'
-], (Backbone, ventr, topics) ->
+], (Backbone, ventr) ->
 
     class Router extends Backbone.Router
 
         routes:
             '': 'index'
-            ':wordId': 'showWordInfo'
+            ':topicId': 'showTopicInfo'
 
         index: ->
-            ventr.trigger 'WordInfoView:close'
+            ventr.trigger 'TopicInfoView:close'
 
-        showWordInfo: (wordId)->
-            ventr.trigger 'WordInfoView:show', wordId
+        showTopicInfo: (topicId)->
+            ventr.trigger 'TopicInfoView:show', topicId

@@ -1,11 +1,11 @@
 "use strict"
 define [
     'backbone',
-    'models/WordModel'
-], (Backbone, WordModel)->
-    class WordCollection extends Backbone.Collection
+    'models/Topic'
+], (Backbone, Topic)->
+    class Topics extends Backbone.Collection
 
-        model: WordModel
+        model: Topic
 
         initialize: (options)->
             options = options or {}

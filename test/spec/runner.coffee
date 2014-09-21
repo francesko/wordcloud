@@ -23,9 +23,9 @@ require.config
 
 specs = [
   'Router_spec'
-  'WordCollection_spec'
-  'WordCloudView_spec'
-  'WordInfoView_spec'
+  'Topics_spec'
+  'TopicsView_spec'
+  'TopicInfoView_spec'
 ]
 
 require specs, ->
