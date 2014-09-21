@@ -6,7 +6,11 @@ define [
     class Router extends Backbone.Router
 
         routes:
-            ':word': 'showWordInfo'
+            '': 'index'
+            ':wordId': 'showWordInfo'
 
-        showWordInfo: (word)->
-            ventr.trigger 'word:showInfo'
+        index: ->
+            ventr.trigger 'WordInfoView:close'
+
+        showWordInfo: (wordId)->
+            ventr.trigger 'WordInfoView:show', wordId

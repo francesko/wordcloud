@@ -21,7 +21,7 @@ define ->
             "neutral": 46
             "positive": 3
         }
-        "sentimentScore": 54
+        "sentimentScore": 60
     }
     {
         "id": "1751295897__Ostgut Ton"
@@ -32,7 +32,7 @@ define ->
             "neutral": 22
             "positive": 2
         }
-        "sentimentScore": 58
+        "sentimentScore": 40
     }
     {
         "id": "1751295897__Hammered"
@@ -54,7 +54,7 @@ define ->
             "neutral": 2
             "positive": 3
         },
-        "sentimentScore": 68
+        "sentimentScore": 15
     }
     {
         "id": "1751295897__Quantified Drunk",
@@ -64,6 +64,6 @@ define ->
         "sentiment": {
             "neutral": 2
         },
-        "sentimentScore": 50
+        "sentimentScore": 5
     }
   ]

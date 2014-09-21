@@ -1,0 +1,45 @@
+.logo {
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+    text-indent: -99999px;
+    @include svg-bg('cloud-10');
+}
+
+.word-cloud{
+    text-align: center;
+    padding: 15px;
+}
+
+.word {
+    display: inline-block;
+    margin: 5px;
+    letter-spacing: -2px;
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+.error {
+    .icon {
+        top: 4px;
+    }
+}
+
+.bg_black {
+    background-color: $black;
+}
+
+.bg_green {
+    background-color: $green;
+}
+
+.bg_grey {
+    background-color: $grey;
+}
+
+.bg_red {
+    background-color: $red;
+}

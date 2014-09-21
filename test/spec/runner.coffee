@@ -9,6 +9,7 @@ require.config
   }
   paths:
     scripts: '../../scripts'
+    utils: '../../scripts/utils'
     models: '../../scripts/models'
     collections: '../../scripts/collections'
     views: '../../scripts/views'
@@ -17,6 +18,7 @@ require.config
     jquery: '../../bower_components/jquery/dist/jquery'
     backbone: '../../bower_components/backbone/backbone'
     underscore: '../../bower_components/lodash/dist/lodash'
+    bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap'
     text: '../../bower_components/requirejs-text/text'
 
 specs = [

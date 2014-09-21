@@ -1,8 +1,3 @@
-$font : 'PT Mono';
-$green : #458b00;
-$grey : #a9a9a9;
-$red : #cd0000;
-
 body, h1, h2, h3, h4, h5, h6{
     font-family: $font;
 }
@@ -17,6 +12,10 @@ body, h1, h2, h3, h4, h5, h6{
 
 .text_red {
     color: $red;
+}
+
+.text_white {
+    color: $white;
 }
 
 .text_size-1 {
