@@ -1,31 +1,28 @@
 "use strict"
 
 console.log 'test runner'
+console.log requirejs.s.contexts._.config.baseUrl
 
 require.config
-  baseUrl: "../../.tmp/scripts/"
+  baseUrl: 'spec/'
+  shim: {
+    bootstrap:
+      deps: ['jquery'],
+      exports: 'jquery'
+  }
   paths:
-    jquery: "../bower_components/jquery/dist/jquery"
-    backbone: "../bower_components/backbone/backbone"
-    underscore: "../bower_components/lodash/dist/lodash"
-
-  shim:
-    underscore:
-      exports: "_"
-
-    jquery:
-      exports: "$"
-
-    backbone:
-      deps: [
-        "underscore"
-        "jquery"
-      ]
-      exports: "Backbone"
+    scripts: '../../scripts'
+    models: '../../scripts/models'
+    collections: '../../scripts/collections'
+    views: '../../scripts/views'
+    jquery: '../../bower_components/jquery/dist/jquery'
+    backbone: '../../bower_components/backbone/backbone'
+    underscore: '../../bower_components/lodash/dist/lodash'
+    text: '../../bower_components/requirejs-text/text'
 
 specs = [
-  "spec/WordCollection.spec.js"
-  "spec/WordCloudView.spec.js"
+  "WordCollection_spec"
+  "WordCloudView_spec"
 ]
 
 require specs, ->

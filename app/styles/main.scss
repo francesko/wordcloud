@@ -24,8 +24,12 @@ header {
 }
 
 .word {
+    display: inline-block;
+    margin: 5px;
+    letter-spacing: -2px;
+
     &:hover {
-        text-decoration: none;
+        color: inherit;
     }
 }
 

@@ -23,7 +23,7 @@ require [
 ], (Backbone, topics, Router, WordCollection, WordCloudView) ->
   topics = JSON.parse topics
 
-  words = new WordCollection
+  words = new WordCollection { randomSort: on }
   
   new WordCloudView
     el: '.js-word-cloud'

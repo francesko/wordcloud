@@ -14,6 +14,20 @@ define [
         initialize: ->
             @listenTo @collection, 'reset', @render
 
+        renderWord: (model)->
+            data = model.toJSON()
+            data.fontColor = @calculateWordColor model
+            data.fontSize = @calculateWordPopularity model
+            @$el.append wordTemplate(data)
+
+        render: ->
+            @collection.forEach @renderWord, @
+        
+        showWordInfo: (e)->
+            e.preventDefault()
+            # TODO
+            console.log $(e.currentTarget).data('id')
+
         calculateWordColor: (model)->
             fontColor = 'grey'
             sentimentScore = model.get('sentimentScore')
@@ -25,15 +39,16 @@ define [
             
             fontColor
 
-        renderWord: (model)->
-            data = model.toJSON()
-            data.fontColor = @calculateWordColor model
-            @$el.append wordTemplate(data)
+        calculateWordPopularity: (model)->
+            popularity = Math.floor (model.get('volume') / @collection.popularity.max) * 100
+            
+            # six levels of popularity
+            ranges = [[100,50],[50,25],[25,12],[12,6],[6,3],[3,0]]
 
-        render: ->
-            @collection.forEach @renderWord, @
-        
-        showWordInfo: (e)->
-            e.preventDefault()
-            # TODO
-            console.log $(e.currentTarget).data('id')
+            fontSize = 6
+            range = _.find ranges, (range, index)->
+                if popularity <= range[0] and popularity >= range[1]
+                    fontSize = index + 1
+                    return yes
+
+            fontSize
