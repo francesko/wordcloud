@@ -1,35 +1,38 @@
-## Word Cloud
+## wordcloud
 
-Simple Word Cloud Experiment
+Simple word cloud experiment
 
-## Version
+#### Version
 
 0.0.1
 
-## Dependencies
+#### Dependencies
 
 - [node.js and npm](https://gist.github.com/isaacs/579814)
 - [bower](http://bower.io/)
 
-## Running development version
+#### Installation
 
     git clone git@github.com:francesko/wordcloud.git
     cd wordcloud
     npm install
     bower install
+
+#### Running development version
+
     grunt serve
 
-## Running production version
+#### Running production version
 
     grunt # build production version in dist folder
     google-chrome dist/index.html # open with a browser
 
-## Testing
+#### Testing
 
     grunt test
     grunt serve:test
 
-## Licence
+#### Licence
 
     DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
                    Version 2, December 2004
