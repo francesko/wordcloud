@@ -19,7 +19,7 @@ Simple Word Cloud Experiment
     bower install
     grunt serve
 
-## Tests
+## Testing
 
     grunt test
     grunt serve:test

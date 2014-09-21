@@ -1,8 +1,5 @@
 "use strict"
 
-console.log 'test runner'
-console.log requirejs.s.contexts._.config.baseUrl
-
 require.config
   baseUrl: 'spec/'
   shim: {
@@ -15,6 +12,8 @@ require.config
     models: '../../scripts/models'
     collections: '../../scripts/collections'
     views: '../../scripts/views'
+    templates: '../../scripts/templates'
+    ventr: '../../scripts/ventr'
     jquery: '../../bower_components/jquery/dist/jquery'
     backbone: '../../bower_components/backbone/backbone'
     underscore: '../../bower_components/lodash/dist/lodash'

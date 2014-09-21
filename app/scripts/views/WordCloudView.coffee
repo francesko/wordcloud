@@ -11,13 +11,16 @@ define [
         events:
             'click .js-word': 'showWordInfo'
 
+        # six levels of popularity
+        popularityRanges: [[100,50],[50,25],[25,12],[12,6],[6,3],[3,0]]
+
         initialize: ->
             @listenTo @collection, 'reset', @render
 
         renderWord: (model)->
             data = model.toJSON()
             data.fontColor = @calculateWordColor model
-            data.fontSize = @calculateWordPopularity model
+            data.fontSize = @calculateWordSize model
             @$el.append wordTemplate(data)
 
         render: ->
@@ -39,14 +42,11 @@ define [
             
             fontColor
 
-        calculateWordPopularity: (model)->
+        calculateWordSize: (model)->
             popularity = Math.floor (model.get('volume') / @collection.popularity.max) * 100
             
-            # six levels of popularity
-            ranges = [[100,50],[50,25],[25,12],[12,6],[6,3],[3,0]]
-
             fontSize = 6
-            range = _.find ranges, (range, index)->
+            range = _.find @popularityRanges, (range, index)->
                 if popularity <= range[0] and popularity >= range[1]
                     fontSize = index + 1
                     return yes

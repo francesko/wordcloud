@@ -7,11 +7,11 @@ define [
 ], (fixtures, WordModel, WordCollection) ->
   words = undefined
 
-  beforeEach ->
-    words = new WordCollection
-    words.reset fixtures
-
   describe 'WordCollection', ->
+    beforeEach ->
+        words = new WordCollection
+        words.reset fixtures
+
     it 'should contain instances of WordModel', ->
         expect(words.first()).to.be.an.instanceof(WordModel)
 
