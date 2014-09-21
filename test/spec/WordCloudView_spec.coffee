@@ -52,7 +52,9 @@ define [
         expect(fontColor).to.equal('red')
 
     it 'should render words as big as their popularity', ->
-        words.reset fixtures # fixtures are sorted by popularity in descendant order
+        # fixtures are sorted by popularity in descendant order
+        words.reset fixtures
+
         # six fixtures, one for each level of popularity [1-6]
         words.forEach (word, index)->
             expect(wordCloud.calculateWordSize(words.at(index))).to.equal(index + 1)
