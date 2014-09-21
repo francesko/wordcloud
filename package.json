@@ -1,9 +1,7 @@
 {
   "name": "wordcloud",
   "version": "0.0.0",
-  "dependencies": {
-    "grunt-connect-pushstate": "~0.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.5.0",

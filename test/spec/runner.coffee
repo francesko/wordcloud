@@ -22,8 +22,10 @@ require.config
     text: '../../bower_components/requirejs-text/text'
 
 specs = [
-  "WordCollection_spec"
-  "WordCloudView_spec"
+  'Router_spec'
+  'WordCollection_spec'
+  'WordCloudView_spec'
+  'WordInfoView_spec'
 ]
 
 require specs, ->

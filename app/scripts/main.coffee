@@ -37,4 +37,4 @@ require [
 
   new Router()
   
-  Backbone.history.start() #({ pushState: true })
+  Backbone.history.start()
