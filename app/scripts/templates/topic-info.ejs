@@ -15,7 +15,7 @@
             </li>
             <% _.each(sentiment, function(value, type){ %>
             <li class="list-group-item">
-                <span class="badge bg_<%= bgColors[type] %>"><%= value %></span>
+                <span class="badge clear_filter bg_<%= bgColors[type] %>"><%= value %></span>
                 <%= type %>
             </li>
             <% }); %>

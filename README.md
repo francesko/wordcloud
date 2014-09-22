@@ -10,6 +10,7 @@ Simple word cloud experiment
 
 - [node.js and npm](https://gist.github.com/isaacs/579814)
 - [bower](http://bower.io/)
+- [compass](http://compass-style.org/install/)
 
 #### Installation
 
@@ -29,5 +30,5 @@ Simple word cloud experiment
 
 #### Testing
 
-    grunt test
-    grunt serve:test
+    grunt test # run tests in command line
+    grunt serve:test  # run tests in default browser
