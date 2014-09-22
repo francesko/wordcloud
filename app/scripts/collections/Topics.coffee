@@ -1,8 +1,9 @@
 "use strict"
 define [
-    'backbone',
+    'backbone'
+    'utils/helpers'
     'models/Topic'
-], (Backbone, Topic)->
+], (Backbone, helpers, Topic)->
     class Topics extends Backbone.Collection
 
         model: Topic
@@ -20,5 +21,8 @@ define [
 
         cachePopularity: ->
             @popularity = {}
-            mostPopular = @max (model)-> model.get('volume')
+            mostPopular = @max (topic)-> topic.get('volume')
             @popularity.max = (mostPopular? and mostPopular.get('volume')) or 0
+
+        findByUrlSegment: (urlSegment)->
+            @find (topic)-> helpers.generateUrlSegment(topic) is urlSegment

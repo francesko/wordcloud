@@ -23,7 +23,7 @@ define [
             'click .js-topic-info-close': 'close'
 
         initialize: ->
-            @render()
+            @$el.detach().modal()
             @listenTo ventr, 'TopicInfoView:show', @show
             @listenTo ventr, 'TopicInfoView:close', @close
             @$el.on 'hide.bs.modal', _.bind(@updateRoute, @)
@@ -31,8 +31,8 @@ define [
         updateRoute: ->
             Backbone.history.navigate '#/home'
 
-        show: (topicId)->
-            topic = @collection.get topicId
+        show: (topicUrlSegment)->
+            topic = @collection.findByUrlSegment topicUrlSegment
 
             if topic?
                 data = topic.toJSON()
@@ -50,7 +50,8 @@ define [
         close: (e)->
             e.preventDefault() if e?
             @$el.modal 'hide'
-            @updateRoute()
 
-        render: ->
-            $('body').append @el
+        remove: ->
+            @stopListening ventr
+            @$el.removeData().unbind()
+            Backbone.View::remove.call @

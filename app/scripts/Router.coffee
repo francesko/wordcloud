@@ -8,10 +8,10 @@ define [
         routes:
             '': 'index'
             'home': 'index'
-            ':topicId': 'showTopicInfo'
+            ':topicUrlSegment': 'showTopicInfo'
 
         index: ->
             ventr.trigger 'TopicInfoView:close'
 
-        showTopicInfo: (topicId)->
-            ventr.trigger 'TopicInfoView:show', topicId
+        showTopicInfo: (topicUrlSegment)->
+            ventr.trigger 'TopicInfoView:show', topicUrlSegment

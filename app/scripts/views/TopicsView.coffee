@@ -18,6 +18,7 @@ define [
             data = topic.toJSON()
             data.fontColor = helpers.calculateTopicColor topic
             data.fontSize = helpers.calculateTopicSize topic
+            data.urlSegment = helpers.generateUrlSegment topic
             @template data
 
         render: ->

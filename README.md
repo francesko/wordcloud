@@ -1,6 +1,6 @@
 ## wordcloud
 
-Simple word cloud experiment
+Simple word cloud experiment.
 
 #### Version
 
@@ -21,14 +21,18 @@ Simple word cloud experiment
 
 #### Running development version
 
-    grunt serve
+    grunt serve # run app in default browser
 
 #### Running production version
 
     grunt # build production version in dist folder
     google-chrome dist/index.html # open with a browser
 
-#### Testing
+#### Running tests
 
     grunt test # run tests in command line
     grunt serve:test  # run tests in default browser
+
+#### Docs
+
+    docco /app/scripts/*/*.coffee # generate docs folder

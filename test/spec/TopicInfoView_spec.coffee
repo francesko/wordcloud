@@ -9,13 +9,13 @@ define [
 ], ($, fixtures, Router, Topics, TopicInfoView)->
 
     describe 'TopicInfoView', ->
-        beforeEach ->
+        before ->
             @topics = new Topics fixtures, { randomSort: off }
 
             try
                 @closeSpy = sinon.spy TopicInfoView.prototype, 'close'
 
-            @topicInfoView = new TopicInfoView
+            window.test = @topicInfoView = new TopicInfoView
                 collection: @topics
 
             @router = new Router

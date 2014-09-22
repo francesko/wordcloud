@@ -26,3 +26,7 @@ define [
                     return yes
 
             fontSize
+
+        generateUrlSegment: (topic)->
+            id = topic.id
+            id.replace(/\s+/g, '-') if id? and typeof id.replace is 'function'
