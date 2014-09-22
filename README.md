@@ -1,8 +1,12 @@
 ## wordcloud
 
-Word cloud which displays topics in different sizes and colors
+A word cloud which displays topics in different sizes and colors
 according to their popularity and sentiment. By clicking on a topic
-an info box shows the total mentions and how they break down into positive, neutral and negative.
+an info box pops up which shows the total mentions and how they break
+down into positive, neutral and negative.
+
+Read on for instruction on how to build and run the project locally.
+There is a version deployed [here](http://wordcloud.francescomacri.net/).
 
 #### Version
 
