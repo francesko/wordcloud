@@ -44,6 +44,9 @@ define [
 
             expect(rendered.title).to.be.equal topic.get('label')
             expect(parseInt(rendered.mentions.total)).to.be.equal topic.get('volume')
+            expect(parseInt(rendered.mentions.positive)).to.be.equal topic.get('sentiment').positive
+            expect(parseInt(rendered.mentions.neutral)).to.be.equal topic.get('sentiment').neutral
+            expect(parseInt(rendered.mentions.negative)).to.be.equal topic.get('sentiment').negative
 
         it 'gets closed when the close button is clicked', ->
             topic = @topics.first()
