@@ -1,6 +1,8 @@
 ## wordcloud
 
-Simple word cloud experiment.
+Simple word cloud which displays topics in different sizes and colors
+according to their popularity and sentiment. By clicking on a topic
+an info box shows the total mentions and how they break down to positive, neutral and negative.
 
 #### Version
 
@@ -30,9 +32,10 @@ Simple word cloud experiment.
 
 #### Running tests
 
-    grunt test # run tests in command line
-    grunt serve:test  # run tests in default browser
+    grunt test
 
-#### Docs
+#### Generating Documentation
 
-    docco /app/scripts/*/*.coffee # generate docs folder
+    npm install -g docco # install docco
+    docco app/scripts/{,*/}*.coffee # generate docs folder
+    google-chrome docs/main.html # open with a browser
