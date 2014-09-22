@@ -7,13 +7,11 @@ define [
     class Router extends Backbone.Router
 
         routes:
-            # no hash and 'home' both fire index
             '': 'index'
-            # latter is used when closing the info view to prevent scrolling to top
-            'home': 'index'
             ':topicUrlSegment': 'showTopicInfo'
 
         index: ->
+            # close topic info view when going back to no route
             ventr.trigger 'TopicInfoView:close'
 
         showTopicInfo: (topicUrlSegment)->

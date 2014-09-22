@@ -27,12 +27,6 @@ define [
             # listen to events coming from event publisher
             @listenTo ventr, 'TopicInfoView:show', @show
             @listenTo ventr, 'TopicInfoView:close', @close
-            # update the route when the modal is closed
-            @$el.on 'hide.bs.modal', _.bind(@updateRoute, @)
-
-        updateRoute: ->
-            # change route back to 'home' when closing the info view
-            Backbone.history.navigate '#/home'
 
         # find a topic by urlSegment and displays its info
         show: (topicUrlSegment)->
