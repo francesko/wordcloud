@@ -7,6 +7,7 @@ define [
 
         routes:
             '': 'index'
+            'home': 'index'
             ':topicId': 'showTopicInfo'
 
         index: ->

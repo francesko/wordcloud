@@ -26,6 +26,10 @@ define [
             @render()
             @listenTo ventr, 'TopicInfoView:show', @show
             @listenTo ventr, 'TopicInfoView:close', @close
+            @$el.on 'hide.bs.modal', _.bind(@updateRoute, @)
+
+        updateRoute: ->
+            Backbone.history.navigate '#/home'
 
         show: (topicId)->
             topic = @collection.get topicId
@@ -46,7 +50,7 @@ define [
         close: (e)->
             e.preventDefault() if e?
             @$el.modal 'hide'
-            Backbone.history.navigate ' '
+            @updateRoute()
 
         render: ->
             $('body').append @el
