@@ -23,7 +23,9 @@ require [
   'views/TopicInfoView'
 ], (Backbone, topicsJSON, Router, Topics, TopicsView, TopicInfoView) ->
 
-  topics = new Topics { randomSort: on }
+  # initialize app instances
+
+  topics = new Topics { randomSort: on } # set random sort on
   
   new TopicsView
     el: '.js-topics'
@@ -32,6 +34,7 @@ require [
   new TopicInfoView
     collection: topics
 
+  # parse JSON text and insert items into collection
   topics.reset JSON.parse(topicsJSON), { parse: on }
 
   new Router()

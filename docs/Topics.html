@@ -86,34 +86,117 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-string">"use strict"</span>
+            <div class="content"><div class='highlight'><pre><span class="hljs-string">'use strict'</span>
 define [
     <span class="hljs-string">'backbone'</span>
     <span class="hljs-string">'utils/helpers'</span>
     <span class="hljs-string">'models/Topic'</span>
-], <span class="hljs-function"><span class="hljs-params">(Backbone, helpers, Topic)</span>-&gt;</span>
-    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Topics</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Backbone</span>.<span class="hljs-title">Collection</span></span>
+], <span class="hljs-function"><span class="hljs-params">(Backbone, helpers, Topic)</span>-&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>represents a list of Topics</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Topics</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Backbone</span>.<span class="hljs-title">Collection</span></span>
 
         <span class="hljs-attribute">model</span>: Topic
 
         <span class="hljs-attribute">initialize</span>: <span class="hljs-function"><span class="hljs-params">(options)</span>-&gt;</span>
-            options = options <span class="hljs-keyword">or</span> {}
-            <span class="hljs-property">@wantsRandomSort</span> = options.randomSort <span class="hljs-keyword">or</span> <span class="hljs-literal">no</span>
-            <span class="hljs-property">@popularity</span> = { <span class="hljs-attribute">max</span>: <span class="hljs-number">0</span> }
-            <span class="hljs-property">@listenTo</span> @, <span class="hljs-string">'reset change'</span>, <span class="hljs-property">@cachePopularity</span>, @
+            options = options <span class="hljs-keyword">or</span> {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>check if random sort is desired</p>
 
-            <span class="hljs-keyword">if</span> <span class="hljs-property">@wantsRandomSort</span> <span class="hljs-keyword">then</span> <span class="hljs-property">@comparator</span> =<span class="hljs-function"> -&gt;</span> [-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>][Math.floor(Math.random() * <span class="hljs-number">3</span>)]
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-property">@wantsRandomSort</span> = options.randomSort <span class="hljs-keyword">or</span> <span class="hljs-literal">no</span>
+            <span class="hljs-property">@popularity</span> = { <span class="hljs-attribute">max</span>: <span class="hljs-number">0</span> }</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>listen to changes to recalculate max popularity</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-property">@listenTo</span> @, <span class="hljs-string">'reset change'</span>, <span class="hljs-property">@cachePopularity</span>, @</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>set random sort comparator if setting is on</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-keyword">if</span> <span class="hljs-property">@wantsRandomSort</span> <span class="hljs-keyword">then</span> <span class="hljs-property">@comparator</span> =<span class="hljs-function"> -&gt;</span> [-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>][Math.floor(Math.random() * <span class="hljs-number">3</span>)]
 
         <span class="hljs-attribute">parse</span>: <span class="hljs-function"><span class="hljs-params">(data)</span>-&gt;</span>
             data.topics
 
         <span class="hljs-attribute">cachePopularity</span>:<span class="hljs-function"> -&gt;</span>
             <span class="hljs-property">@popularity</span> = {}
-            mostPopular = <span class="hljs-property">@max</span> <span class="hljs-function"><span class="hljs-params">(topic)</span>-&gt;</span> topic.get(<span class="hljs-string">'volume'</span>)
-            <span class="hljs-property">@popularity</span>.max = (mostPopular? <span class="hljs-keyword">and</span> mostPopular.get(<span class="hljs-string">'volume'</span>)) <span class="hljs-keyword">or</span> <span class="hljs-number">0</span>
+            mostPopular = <span class="hljs-property">@max</span> <span class="hljs-function"><span class="hljs-params">(topic)</span>-&gt;</span> topic.get(<span class="hljs-string">'volume'</span>)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>popularity.max stores the maximum popularity value used to compute topic importance</p>
 
-        <span class="hljs-attribute">findByUrlSegment</span>: <span class="hljs-function"><span class="hljs-params">(urlSegment)</span>-&gt;</span>
-            <span class="hljs-property">@find</span> <span class="hljs-function"><span class="hljs-params">(topic)</span>-&gt;</span> helpers.generateUrlSegment(topic) <span class="hljs-keyword">is</span> urlSegment</pre></div></div>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-property">@popularity</span>.max = (mostPopular? <span class="hljs-keyword">and</span> mostPopular.get(<span class="hljs-string">'volume'</span>)) <span class="hljs-keyword">or</span> <span class="hljs-number">0</span>
+
+        <span class="hljs-attribute">findByUrlSegment</span>: <span class="hljs-function"><span class="hljs-params">(urlSegment)</span>-&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>look up a topic by urlSegment (id where spaces are replaced with dashes)</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-property">@find</span> <span class="hljs-function"><span class="hljs-params">(topic)</span>-&gt;</span> helpers.generateUrlSegment(topic) <span class="hljs-keyword">is</span> urlSegment</pre></div></div>
             
         </li>
         

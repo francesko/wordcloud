@@ -1,8 +1,8 @@
 ## wordcloud
 
-Simple word cloud which displays topics in different sizes and colors
+Word cloud which displays topics in different sizes and colors
 according to their popularity and sentiment. By clicking on a topic
-an info box shows the total mentions and how they break down to positive, neutral and negative.
+an info box shows the total mentions and how they break down into positive, neutral and negative.
 
 #### Version
 

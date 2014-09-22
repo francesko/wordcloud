@@ -2,6 +2,7 @@ body, h1, h2, h3, h4, h5, h6{
     font-family: $font;
 }
 
+// text colors
 .text_green {
     color: $green;
 }
@@ -18,6 +19,7 @@ body, h1, h2, h3, h4, h5, h6{
     color: $white;
 }
 
+// text sizes
 .text_size-1 {
     font-size: 500%;
 }
@@ -42,6 +44,7 @@ body, h1, h2, h3, h4, h5, h6{
     font-size: 100%;
 }
 
+// text weight
 .text_bold {
     font-weight: bold;
 }

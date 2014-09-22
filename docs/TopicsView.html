@@ -86,30 +86,72 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-string">"use strict"</span>
+            <div class="content"><div class='highlight'><pre><span class="hljs-string">'use strict'</span>
 define [
     <span class="hljs-string">'underscore'</span>
     <span class="hljs-string">'backbone'</span>
     <span class="hljs-string">'templates'</span>
     <span class="hljs-string">'ventr'</span>,
     <span class="hljs-string">'utils/helpers'</span>
-], <span class="hljs-function"><span class="hljs-params">(_, Backbone, JST, ventr, helpers)</span>-&gt;</span>
+], <span class="hljs-function"><span class="hljs-params">(_, Backbone, JST, ventr, helpers)</span>-&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>view which displays a list of topics</p>
 
-    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TopicsView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Backbone</span>.<span class="hljs-title">View</span></span>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TopicsView</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Backbone</span>.<span class="hljs-title">View</span></span>
 
         <span class="hljs-attribute">template</span>: JST[<span class="hljs-string">'app/scripts/templates/topic.ejs'</span>]
 
-        <span class="hljs-attribute">initialize</span>:<span class="hljs-function"> -&gt;</span>
-            <span class="hljs-property">@listenTo</span> <span class="hljs-property">@collection</span>, <span class="hljs-string">'reset'</span>, <span class="hljs-property">@render</span>
+        <span class="hljs-attribute">initialize</span>:<span class="hljs-function"> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>rerender when the collection content changes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-property">@listenTo</span> <span class="hljs-property">@collection</span>, <span class="hljs-string">'reset change'</span>, <span class="hljs-property">@render</span>
 
         <span class="hljs-attribute">renderTopic</span>: <span class="hljs-function"><span class="hljs-params">(topic)</span>-&gt;</span>
-            data = topic.toJSON()
-            data.fontColor = helpers.calculateTopicColor topic
+            data = topic.toJSON()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>set rendering attributes</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            data.fontColor = helpers.calculateTopicColor topic
             data.fontSize = helpers.calculateTopicSize topic
             data.urlSegment = helpers.generateUrlSegment topic
             <span class="hljs-property">@template</span> data
 
         <span class="hljs-attribute">render</span>:<span class="hljs-function"> -&gt;</span>
+            <span class="hljs-property">@$el</span>.empty()
             <span class="hljs-property">@collection</span>.forEach <span class="hljs-function"><span class="hljs-params">(topic)</span>=&gt;</span>
                 <span class="hljs-property">@$el</span>.append <span class="hljs-property">@renderTopic</span>(topic)</pre></div></div>
             

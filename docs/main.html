@@ -109,18 +109,45 @@
   <span class="hljs-string">'collections/Topics'</span>
   <span class="hljs-string">'views/TopicsView'</span>,
   <span class="hljs-string">'views/TopicInfoView'</span>
-], <span class="hljs-function"><span class="hljs-params">(Backbone, topicsJSON, Router, Topics, TopicsView, TopicInfoView)</span> -&gt;</span>
+], <span class="hljs-function"><span class="hljs-params">(Backbone, topicsJSON, Router, Topics, TopicsView, TopicInfoView)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>initialize app instances</p>
 
-  topics = <span class="hljs-keyword">new</span> Topics { <span class="hljs-attribute">randomSort</span>: <span class="hljs-literal">on</span> }
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+  topics = <span class="hljs-keyword">new</span> Topics { <span class="hljs-attribute">randomSort</span>: <span class="hljs-literal">on</span> } <span class="hljs-comment"># set random sort on</span>
   
   <span class="hljs-keyword">new</span> TopicsView
     <span class="hljs-attribute">el</span>: <span class="hljs-string">'.js-topics'</span>
     <span class="hljs-attribute">collection</span>: topics
 
   <span class="hljs-keyword">new</span> TopicInfoView
-    <span class="hljs-attribute">collection</span>: topics
+    <span class="hljs-attribute">collection</span>: topics</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>parse JSON text and insert items into collection</p>
 
-  topics.reset JSON.parse(topicsJSON), { <span class="hljs-attribute">parse</span>: <span class="hljs-literal">on</span> }
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  topics.reset JSON.parse(topicsJSON), { <span class="hljs-attribute">parse</span>: <span class="hljs-literal">on</span> }
 
   <span class="hljs-keyword">new</span> Router()
   

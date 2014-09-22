@@ -1,10 +1,11 @@
-"use strict"
+'use strict'
 define [
     'underscore',
     'utils/popularityRanges'
 ], (_, popularityRanges)->
-
-    utils =
+    # a set of helper functions
+    helpers =
+        # returns a font color according to topic sentiment
         calculateTopicColor: (topic)->
             fontColor = 'grey'
             sentimentScore = topic.get('sentimentScore')
@@ -16,10 +17,13 @@ define [
             
             fontColor
 
+        # returns a font size from 1 to 6 according to topic volume
         calculateTopicSize: (topic)->
+            # compute topic popularity in percentage to the max popularity value cached in the collection
             popularity = Math.floor (topic.get('volume') / topic.collection.popularity.max) * 100
             
             fontSize = 6
+            # check in which range this topic belongs to (see utils/popularityRanges for ranges definition)
             range = _.find popularityRanges, (range, index)->
                 if popularity <= range[0] and popularity >= range[1]
                     fontSize = index + 1
@@ -27,6 +31,7 @@ define [
 
             fontSize
 
+        # returns an url segment by replacing non word or digital characters from a topic id
         generateUrlSegment: (topic)->
             id = topic.id
-            id.replace(/\s+/g, '-') if id? and typeof id.replace is 'function'
+            id.replace(/[^0-9a-zA-ZäöüÄÖÜ_]/g, '-') if id? and typeof id.replace is 'function'
