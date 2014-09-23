@@ -11,7 +11,6 @@ define [
             ':topicUrlSegment': 'showTopicInfo'
 
         index: ->
-            # delegate close topic info view
             ventr.trigger 'TopicInfoView:close'
 
         showTopicInfo: (topicUrlSegment)->

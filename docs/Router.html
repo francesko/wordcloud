@@ -111,7 +111,10 @@ define [
             <span class="hljs-string">''</span>: <span class="hljs-string">'index'</span>
             <span class="hljs-string">':topicUrlSegment'</span>: <span class="hljs-string">'showTopicInfo'</span>
 
-        <span class="hljs-attribute">index</span>:<span class="hljs-function"> -&gt;</span></pre></div></div>
+        <span class="hljs-attribute">index</span>:<span class="hljs-function"> -&gt;</span>
+            ventr.trigger <span class="hljs-string">'TopicInfoView:close'</span>
+
+        <span class="hljs-attribute">showTopicInfo</span>: <span class="hljs-function"><span class="hljs-params">(topicUrlSegment)</span>-&gt;</span></pre></div></div>
             
         </li>
         
@@ -121,23 +124,6 @@ define [
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <p>delegate close topic info view</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>            ventr.trigger <span class="hljs-string">'TopicInfoView:close'</span>
-
-        <span class="hljs-attribute">showTopicInfo</span>: <span class="hljs-function"><span class="hljs-params">(topicUrlSegment)</span>-&gt;</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
               <p>delegate showing of topic info to TopicInfoView instance</p>
 
