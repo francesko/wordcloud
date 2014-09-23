@@ -209,10 +209,7 @@ define [
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>                <span class="hljs-property">@$el</span>.modal <span class="hljs-string">'show'</span>
-
-        <span class="hljs-attribute">close</span>: <span class="hljs-function"><span class="hljs-params">(e)</span>-&gt;</span>
-            e.preventDefault() <span class="hljs-keyword">if</span> e?</pre></div></div>
+            <div class="content"><div class='highlight'><pre>                <span class="hljs-property">@$el</span>.modal <span class="hljs-string">'show'</span></pre></div></div>
             
         </li>
         
@@ -222,6 +219,24 @@ define [
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>push topic route to browser history</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>                Backbone.history.navigate topicUrlSegment
+
+        <span class="hljs-attribute">close</span>: <span class="hljs-function"><span class="hljs-params">(e)</span>-&gt;</span>
+            e.preventDefault() <span class="hljs-keyword">if</span> e?</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>hide bootstrap modal</p>
 
@@ -234,18 +249,17 @@ define [
         </li>
         
         
-        <li id="section-9">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>unbind events and remove the view</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            <span class="hljs-property">@stopListening</span> ventr
-            <span class="hljs-property">@$el</span>.removeData().unbind()
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-property">@$el</span>.removeData().unbind()
             Backbone.<span class="hljs-attribute">View</span>::remove.call @</pre></div></div>
             
         </li>

@@ -14,11 +14,16 @@ define [
 
         try
             @renderSpy = sinon.spy TopicsView.prototype, 'render'
+            @showTopicInfoSpy = sinon.spy TopicsView.prototype, 'showTopicInfo'
 
         @topicsView = new TopicsView
             collection: @topics
 
         @topics.reset fixtures
+
+    after: ->
+        @topicsView.remove()
+        @topicInfoVew.remove()
 
     it 'works with a collection of topics', ->
         expect(@topicsView.collection).to.be.an.instanceOf Topics
@@ -53,6 +58,6 @@ define [
             $topic = $(@topicsView.renderTopic(topic))
             expect($topic.hasClass('text_size-' + (index + 1))).to.be.true
 
-
-
-
+    it 'opens the info window when the user clicks on a topic', ->
+        @topicsView.$('.js-topic:eq(0)').click()
+        expect(@showTopicInfoSpy.called).to.be.true

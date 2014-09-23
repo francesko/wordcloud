@@ -12,6 +12,9 @@ define [
 
         template: JST['app/scripts/templates/topic.ejs']
 
+        events: ->
+            'click .js-topic': 'showTopicInfo'
+
         initialize: ->
             # rerender when the collection content changes
             @listenTo @collection, 'reset change', @render
@@ -28,3 +31,9 @@ define [
             @$el.empty()
             @collection.forEach (topic)=>
                 @$el.append @renderTopic(topic)
+
+        showTopicInfo: (e)->
+            e.preventDefault()
+            topicUrlSegment = $(e.currentTarget).data 'topic-urlsegment'
+            # delegate showing of topic info to TopicInfoView instance
+            ventr.trigger 'TopicInfoView:show', topicUrlSegment

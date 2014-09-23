@@ -46,6 +46,8 @@ define [
                 @$el.html @template(data)
                 # show bootstrap modal
                 @$el.modal 'show'
+                # push topic route to browser history
+                Backbone.history.navigate topicUrlSegment
 
         close: (e)->
             e.preventDefault() if e?
@@ -54,6 +56,5 @@ define [
 
         remove: ->
             # unbind events and remove the view
-            @stopListening ventr
             @$el.removeData().unbind()
             Backbone.View::remove.call @

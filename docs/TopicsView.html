@@ -112,6 +112,9 @@ define [
 
         <span class="hljs-attribute">template</span>: JST[<span class="hljs-string">'app/scripts/templates/topic.ejs'</span>]
 
+        <span class="hljs-attribute">events</span>:<span class="hljs-function"> -&gt;</span>
+            <span class="hljs-string">'click .js-topic'</span>: <span class="hljs-string">'showTopicInfo'</span>
+
         <span class="hljs-attribute">initialize</span>:<span class="hljs-function"> -&gt;</span></pre></div></div>
             
         </li>
@@ -153,7 +156,26 @@ define [
         <span class="hljs-attribute">render</span>:<span class="hljs-function"> -&gt;</span>
             <span class="hljs-property">@$el</span>.empty()
             <span class="hljs-property">@collection</span>.forEach <span class="hljs-function"><span class="hljs-params">(topic)</span>=&gt;</span>
-                <span class="hljs-property">@$el</span>.append <span class="hljs-property">@renderTopic</span>(topic)</pre></div></div>
+                <span class="hljs-property">@$el</span>.append <span class="hljs-property">@renderTopic</span>(topic)
+
+        <span class="hljs-attribute">showTopicInfo</span>: <span class="hljs-function"><span class="hljs-params">(e)</span>-&gt;</span>
+            e.preventDefault()
+            topicUrlSegment = $(e.currentTarget).data <span class="hljs-string">'topic-urlsegment'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>delegate showing of topic info to TopicInfoView instance</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            ventr.trigger <span class="hljs-string">'TopicInfoView:show'</span>, topicUrlSegment</pre></div></div>
             
         </li>
         
