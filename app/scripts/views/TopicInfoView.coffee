@@ -27,6 +27,13 @@ define [
             # listen to events coming from event publisher
             @listenTo ventr, 'TopicInfoView:show', @show
             @listenTo ventr, 'TopicInfoView:close', @close
+            # update the route when the modal is closed
+            @$el.on 'hide.bs.modal', _.bind(@updateRoute, @)
+
+        updateRoute: ->
+            $('.modal-backdrop').remove() # fix bootstrap modal bug
+            # only route to 'home' if not on index already
+            Backbone.history.navigate('#/home') if location.hash isnt ''
 
         # find a topic by urlSegment and displays its info
         show: (topicUrlSegment)->
@@ -47,7 +54,7 @@ define [
                 # show bootstrap modal
                 @$el.modal 'show'
                 # push topic route to browser history
-                Backbone.history.navigate topicUrlSegment
+                Backbone.history.navigate '#/' + topicUrlSegment
 
         close: (e)->
             e.preventDefault() if e?

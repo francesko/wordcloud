@@ -7,11 +7,14 @@ define [
     class Router extends Backbone.Router
 
         routes:
+            # '' and 'home' both fire index
             '': 'index'
+            # this prevents unwanted scrolling behavior when navigating to ''
+            'home': 'index'
             ':topicUrlSegment': 'showTopicInfo'
 
         index: ->
-            # close topic info view when going back to no route
+            # delegate close topic info view
             ventr.trigger 'TopicInfoView:close'
 
         showTopicInfo: (topicUrlSegment)->

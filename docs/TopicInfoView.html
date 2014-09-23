@@ -163,6 +163,39 @@ define [
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
+              <p>update the route when the modal is closed</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            <span class="hljs-property">@$el</span>.<span class="hljs-literal">on</span> <span class="hljs-string">'hide.bs.modal'</span>, _.bind(<span class="hljs-property">@updateRoute</span>, @)
+
+        <span class="hljs-attribute">updateRoute</span>:<span class="hljs-function"> -&gt;</span>
+            $(<span class="hljs-string">'.modal-backdrop'</span>).remove() <span class="hljs-comment"># fix bootstrap modal bug</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>only route to ‘home’ if not on index already</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            Backbone.history.navigate(<span class="hljs-string">'#/home'</span>) <span class="hljs-keyword">if</span> location.hash <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
               <p>find a topic by urlSegment and displays its info</p>
 
             </div>
@@ -176,11 +209,11 @@ define [
         </li>
         
         
-        <li id="section-6">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>set rendering attributes</p>
 
@@ -199,11 +232,11 @@ define [
         </li>
         
         
-        <li id="section-7">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>show bootstrap modal</p>
 
@@ -214,17 +247,17 @@ define [
         </li>
         
         
-        <li id="section-8">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>push topic route to browser history</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>                Backbone.history.navigate topicUrlSegment
+            <div class="content"><div class='highlight'><pre>                Backbone.history.navigate <span class="hljs-string">'#/'</span> + topicUrlSegment
 
         <span class="hljs-attribute">close</span>: <span class="hljs-function"><span class="hljs-params">(e)</span>-&gt;</span>
             e.preventDefault() <span class="hljs-keyword">if</span> e?</pre></div></div>
@@ -232,11 +265,11 @@ define [
         </li>
         
         
-        <li id="section-9">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>hide bootstrap modal</p>
 
@@ -249,11 +282,11 @@ define [
         </li>
         
         
-        <li id="section-10">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>unbind events and remove the view</p>
 
