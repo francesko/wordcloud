@@ -26,12 +26,6 @@ define [
             expect(@routeSpy.calledOnce).to.be.true
             expect(@routeSpy.calledWith()).to.be.true
 
-        it 'fires the index route with "home" hash', ->
-             @router.bind 'route:index', @routeSpy
-             @router.navigate 'home', { trigger: yes }
-             expect(@routeSpy.calledOnce).to.be.true
-             expect(@routeSpy.calledWith()).to.be.true
-
         it 'fires the showTopicInfo route with a non blank hash', ->
             @router.bind 'route:showTopicInfo', @routeSpy
             @router.navigate '#1234_test', { trigger: yes }

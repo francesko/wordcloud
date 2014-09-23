@@ -35,9 +35,9 @@ define [
                 $('.modal-backdrop').remove() 
 
         updateRoute: ->
-            
-            # only route to 'home' if not on index already
-            Backbone.history.navigate('#/home') if location.hash isnt ''
+            # only route to '' if not on index already
+            # using '/' prevents unwanted scrolling to top
+            Backbone.history.navigate('#/') if location.hash isnt ''
 
         # find a topic by urlSegment and displays its info
         show: (topicUrlSegment)->

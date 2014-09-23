@@ -29,5 +29,5 @@ define [
             @popularity.max = (mostPopular? and mostPopular.get('volume')) or 0
 
         findByUrlSegment: (urlSegment)->
-            # look up a topic by urlSegment (id where spaces are replaced with dashes)
+            # look up a topic by urlSegment (id where special characters are replaced with dashes)
             @find (topic)-> helpers.generateUrlSegment(topic) is urlSegment

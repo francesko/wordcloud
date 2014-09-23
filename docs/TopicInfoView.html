@@ -197,11 +197,12 @@ define [
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>only route to ‘home’ if not on index already</p>
+              <p>only route to ‘’ if not on index already
+using ‘/‘ prevents unwanted scrolling to top</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>            Backbone.history.navigate(<span class="hljs-string">'#/home'</span>) <span class="hljs-keyword">if</span> location.hash <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>            Backbone.history.navigate(<span class="hljs-string">'#/'</span>) <span class="hljs-keyword">if</span> location.hash <span class="hljs-keyword">isnt</span> <span class="hljs-string">''</span></pre></div></div>
             
         </li>
         

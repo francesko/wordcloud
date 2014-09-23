@@ -107,7 +107,11 @@ define [
             
             <div class="content"><div class='highlight'><pre>    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Router</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Backbone</span>.<span class="hljs-title">Router</span></span>
 
-        <span class="hljs-attribute">routes</span>:</pre></div></div>
+        <span class="hljs-attribute">routes</span>:
+            <span class="hljs-string">''</span>: <span class="hljs-string">'index'</span>
+            <span class="hljs-string">':topicUrlSegment'</span>: <span class="hljs-string">'showTopicInfo'</span>
+
+        <span class="hljs-attribute">index</span>:<span class="hljs-function"> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -117,39 +121,6 @@ define [
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <p>‘’ and ‘home’ both fire index</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>            <span class="hljs-string">''</span>: <span class="hljs-string">'index'</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
-              </div>
-              <p>this prevents unwanted scrolling behavior when navigating to ‘’</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>            <span class="hljs-string">'home'</span>: <span class="hljs-string">'index'</span>
-            <span class="hljs-string">':topicUrlSegment'</span>: <span class="hljs-string">'showTopicInfo'</span>
-
-        <span class="hljs-attribute">index</span>:<span class="hljs-function"> -&gt;</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-5">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
               <p>delegate close topic info view</p>
 
@@ -162,11 +133,11 @@ define [
         </li>
         
         
-        <li id="section-6">
+        <li id="section-4">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
               <p>delegate showing of topic info to TopicInfoView instance</p>
 

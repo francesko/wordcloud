@@ -31,7 +31,7 @@ define [
 
             fontSize
 
-        # returns an url segment by replacing non word or digital characters from a topic id
+        # returns an url segment from a topic id by replacing special characters with dashes
         generateUrlSegment: (topic)->
             id = topic.id
             id.replace(/[^0-9a-zA-ZäöüÄÖÜ_]/g, '-') if id? and typeof id.replace is 'function'
