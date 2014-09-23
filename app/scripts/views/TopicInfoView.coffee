@@ -29,9 +29,13 @@ define [
             @listenTo ventr, 'TopicInfoView:close', @close
             # update the route when the modal is closed
             @$el.on 'hide.bs.modal', _.bind(@updateRoute, @)
+            # bootstrap modal bug fix 
+            # https://github.com/twbs/bootstrap/issues/12990
+            @$el.on 'hidden.bs.modal', ->
+                $('.modal-backdrop').remove() 
 
         updateRoute: ->
-            $('.modal-backdrop').remove() # fix bootstrap modal bug
+            
             # only route to 'home' if not on index already
             Backbone.history.navigate('#/home') if location.hash isnt ''
 
