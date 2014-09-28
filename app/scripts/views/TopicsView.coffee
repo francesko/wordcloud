@@ -21,22 +21,22 @@ define [
             # rerender when the collection content changes
             @listenTo @collection, 'reset change', @render
 
-        renderTopic: (topic, returnMarkup)->
+        renderTopic: (topic, asObject)->
             data = topic.toJSON()
             # set rendering attributes
             data.fontColor = helpers.calculateTopicColor topic
             data.fontSize = helpers.calculateTopicSize topic
             data.urlSegment = helpers.generateUrlSegment topic
             
-            if returnMarkup
-                @template data
-            else
+            if asObject
                 data
+            else
+                @template data
 
         render: ->
             @$el.empty()
 
-            if not Modernizr.svg
+            if not window.Modernizr or not Modernizr.svg
                 # no svg fallback
                 @collection.forEach (topic)=>
                     @$el.append @renderTopic(topic)
@@ -45,7 +45,7 @@ define [
                   600
                   600
                 ]).words(@collection.map((topic)=>
-                  data = @renderTopic(topic)
+                  data = @renderTopic(topic, yes)
                   text: data.label
                   color: data.fontColor
                   size: 100 / data.fontSize
