@@ -52,7 +52,7 @@ define [
                   urlSegment: data.urlSegment
                 ))
                 .padding(5).rotate(=>
-                  @random(-1, 1) * 30
+                  _.random(-1, 1) * 30
                 ).font("PT Mono").fontSize((d) ->
                   d.size
                 ).on("end", _.bind(@draw, @)).start()
@@ -97,6 +97,3 @@ define [
             ] + ")rotate(" + d.rotate + ")"
           ).text (d) ->
             d.text
-
-        random: (min, max) ->
-            Math.random() * (max - min) + min
