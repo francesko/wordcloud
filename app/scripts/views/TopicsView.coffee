@@ -21,30 +21,38 @@ define [
             # rerender when the collection content changes
             @listenTo @collection, 'reset change', @render
 
-        renderTopic: (topic)->
+        renderTopic: (topic, returnMarkup)->
             data = topic.toJSON()
             # set rendering attributes
             data.fontColor = helpers.calculateTopicColor topic
             data.fontSize = helpers.calculateTopicSize topic
             data.urlSegment = helpers.generateUrlSegment topic
-            @template data
+            
+            if returnMarkup
+                @template data
+            else
+                data
 
         render: ->
             @$el.empty()
+
             if not Modernizr.svg
                 # no svg fallback
                 @collection.forEach (topic)=>
                     @$el.append @renderTopic(topic)
             else
                 d3.layout.cloud().size([
-                  500
-                  500
-                ]).words(@collection.map((topic) ->
-                  text: topic.get('label')
-                  size: 100 / helpers.calculateTopicSize(topic)
-                  color: helpers.calculateTopicColor(topic)
-                )).padding(5).rotate(=>
-                  @random(1, 2) * 30
+                  600
+                  600
+                ]).words(@collection.map((topic)=>
+                  data = @renderTopic(topic)
+                  text: data.label
+                  color: data.fontColor
+                  size: 100 / data.fontSize
+                  urlSegment: data.urlSegment
+                ))
+                .padding(5).rotate(=>
+                  @random(-1, 1) * 30
                 ).font("PT Mono").fontSize((d) ->
                   d.size
                 ).on("end", _.bind(@draw, @)).start()
@@ -57,25 +65,32 @@ define [
 
         draw: (words) ->
           colors = 
-            'green': '#0f0'
-            'grey': '#bbb'
-            'red': '#f00'
+            'green': '#458b00'
+            'grey': '#a9a9a9'
+            'red': '#cd0000'
 
           d3.select(@el)
           .append("svg")
-          .attr("width", 500)
-          .attr("height", 500)
+          .attr("width", 600)
+          .attr("height", 600)
           .append("g")
-          .attr("transform", "translate(150,150)")
+          .attr("transform", "translate(250,250)")
           .selectAll("text")
           .data(words)
           .enter()
           .append("text")
+          .attr('class', 'js-topic')
           .style("font-size", (d) ->
             d.size + "px"
-          ).style("font-family", "PT Mono").style("fill", (d, i) ->
+          )
+          .style("font-family", "PT Mono")
+          .style("fill", (d, i) ->
             colors[d.color]
-          ).attr("text-anchor", "middle").attr("transform", (d) ->
+          )
+          .attr('data-topic-urlsegment', (d)->
+            d.urlSegment
+          )
+          .attr("text-anchor", "middle").attr("transform", (d) ->
             "translate(" + [
               d.x
               d.y
