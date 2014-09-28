@@ -5,6 +5,9 @@ require.config
     bootstrap:
       deps: ['jquery'],
       exports: 'jquery'
+    d3cloud:
+      deps: ['d3']
+      exports: 'd3cloud'
   }
   paths:
     jquery: '../bower_components/jquery/dist/jquery'
@@ -12,6 +15,8 @@ require.config
     underscore: '../bower_components/lodash/dist/lodash'
     bootstrap: '../bower_components/sass-bootstrap/dist/js/bootstrap'
     text: '../bower_components/requirejs-text/text'
+    d3: '../bower_components/d3/d3'
+    d3cloud: '../bower_components/d3-cloud/d3.layout.cloud'
 
 require [
   'backbone'
