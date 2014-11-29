@@ -6,7 +6,6 @@ an info box pops up which shows the total mentions and how they break
 down into positive, neutral and negative.
 
 Read on for instructions on how to build and run the project locally.
-There is a version deployed [here](http://wordcloud.francescomacri.net/) with [docs](http://wordcloud.francescomacri.net/docs/main.html) (use the "jump to" menu on top right corner to navigate between pages).
 
 #### Version
 
